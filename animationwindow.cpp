@@ -28,8 +28,6 @@ void AnimationWindow::onPopulateCharacters(){
     ui->characters2choose->addItem("Your char #6");
     ui->characters2choose->addItem("Your char #7");
 
-
-
     QString str = "";
     for(int i = 32; i < 126; i++){
         str.append(char(i));

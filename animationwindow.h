@@ -18,9 +18,21 @@ public:
 private slots:
     void on_pushCharacterL_clicked();
 
+    void on_exportButton_clicked();
+
+    void on_clearButton_clicked();
+
+    void on_saveCustomChar_button_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::AnimationWindow *ui;
     void onPopulateCharacters();
+    /**
+    * custom characters:
+    */
+    int characters[8][8];
 };
 
 #endif // ANIMATIONWINDOW_H

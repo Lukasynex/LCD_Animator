@@ -138,7 +138,23 @@ void LedMatrix::clearField(int row, int col){
         for(int j = fixed_col; j < fixed_col + 5; j++)
             setDiodeState(i, j, false);
 }
-void LedMatrix::setChar(int* chars){
+void LedMatrix::setChar(int row, int col, int chars[]){
+    clearField(row,col);
+    int fixed_row = (row) ? 9 : 0;
+    int fixed_col = col*6;
+
+    for(int i = 0; i < 8; i++){
+        if(chars[i] % 2)
+            setDiodeState(fixed_row + i, fixed_col + 4, true);
+        if(chars[i]/2 % 2)
+            setDiodeState(fixed_row + i, fixed_col + 3, true);
+        if(chars[i]/4 % 2)
+            setDiodeState(fixed_row + i, fixed_col + 2, true);
+        if(chars[i]/8 % 2)
+            setDiodeState(fixed_row + i, fixed_col + 1, true);
+        if(chars[i]/16 % 2)
+            setDiodeState(fixed_row + i, fixed_col, true);
+    }
 
 }
 
@@ -148,7 +164,7 @@ void LedMatrix::setCharacter(char ch, int row, int col){
     int fixed_col = col*6;
 
     switch(ch){
-        case '@':
+    case '@':
         setDiodeState(fixed_row +1,fixed_col+1,true);
         setDiodeState(fixed_row +1,fixed_col+2,true);
         setDiodeState(fixed_row +1,fixed_col+3,true);
@@ -175,6 +191,48 @@ void LedMatrix::setCharacter(char ch, int row, int col){
         setDiodeState(fixed_row +7,fixed_col+3,true);
 
         break;
+    case '!':
+        setChar(row,col, interjection);
+    break;
+    case '"':
+        setChar(row,col, quote);
+    break;
+    case '#':
+        setChar(row,col, hash);
+    break;
+    case '$':
+        setChar(row,col, dollar);
+    break;
+    case '%':
+        setChar(row,col, procent);
+    break;
+    case '&':
+        setChar(row,col, ampersand);
+    break;
+    case '*':
+        setChar(row,col, asterisk);
+    break;
+    case '+':
+        setChar(row,col, plus);
+    break;
+    case '-':
+        setChar(row,col, minus);
+    break;
+    case ',':
+        setChar(row,col, comma);
+    break;
+    case '.':
+        setChar(row,col, dot);
+    break;
+    case '/':
+        setChar(row,col, slash);
+    break;
+    case '0':
+        setChar(row,col, zero);
+    break;
+    case '1':
+        setChar(row,col, one);
+    break;
     }
 }
 

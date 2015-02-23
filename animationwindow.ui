@@ -317,7 +317,13 @@
                <item>
                 <widget class="LedMatrix" name="CustomCharacter">
                  <property name="enabled">
-                  <bool>false</bool>
+                  <bool>true</bool>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
                  <attribute name="horizontalHeaderVisible">
                   <bool>false</bool>
@@ -329,6 +335,27 @@
                </item>
               </layout>
              </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="CustomCharLayout">
+              <item>
+               <widget class="QPushButton" name="saveCustomChar_button">
+                <property name="text">
+                 <string>Save char</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="text">
+                 <string>Clear field</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="customCharsRange"/>
+              </item>
+             </layout>
             </item>
            </layout>
           </item>
